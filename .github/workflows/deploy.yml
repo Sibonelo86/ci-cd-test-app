@@ -1,0 +1,23 @@
+name: CI/CD Test Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Simulate Build
+        run: echo "Building the app..."
+
+      - name: Simulate Tests
+        run: echo "Running tests..."
+
+      - name: Deploy to Staging
+        if: github.ref == 'refs/heads/main'
+        run: echo "Deploying to Staging..."
